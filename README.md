@@ -40,7 +40,7 @@ The proposed transformer-based model leverages multi-head self-attention mechani
 
 ## Results ##
 
-### Confusion Matrices###
+### Confusion Matrices ###
 The confusion matrices for the test as well as the evaluation modes have been depicted below. They showcase a good generalisation performance of the tranformer based classifier
 
 The transformer-based model achieved an overall test accuracy of 84.14%. Below are the key evaluation metrics:

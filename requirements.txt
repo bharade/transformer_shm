@@ -1,0 +1,9 @@
+numpy
+pandas
+tensorflow
+pandas
+datasets
+torch
+transformers
+matplotlib
+#-e .

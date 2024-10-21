@@ -25,18 +25,24 @@ Training and testing samples with an equal number of damaged and undamaged data 
 Signals recorded at different temperatures (from 20°C to 60°C).
 You can download the dataset from the [Open Guided Waves](https://openguidedwaves.de/ "OGW#2 dataset") repository.
 
+## Data Preprocessing ##
+
 
 ## Model Architecture ##
 The proposed transformer-based model leverages multi-head self-attention mechanisms to process the time-series data efficiently. The architecture includes:
 
-Input Layer: Takes a downsampled 1D array representing the Lamb wave response.
-Multi-Head Attention Layer: Captures long-range dependencies in the data.
-Convolutional Layers: Used to capture local features and patterns.
-Dense Layers: For classification into damaged or undamaged states.
-Optimizer: Adam optimizer with binary cross-entropy loss.
-The model is trained using a batch size of 32 over 300 epochs.
+- Input Layer: Takes a downsampled 1D array representing the Lamb wave response.
+- Multi-Head Attention Layer: Captures long-range dependencies in the data.
+- Convolutional Layers: Used to capture local features and patterns.
+- Dense Layers: For classification into damaged or undamaged states.
+- Optimizer: Adam optimizer with binary cross-entropy loss.
+- The model is trained using a batch size of 32 over 300 epochs.
 
 ## Results ##
+
+### Confusion Matrices###
+The confusion matrices for the test as well as the evaluation modes have been depicted below. They showcase a good generalisation performance of the tranformer based classifier
+
 The transformer-based model achieved an overall test accuracy of 84.14%. Below are the key evaluation metrics:
 
 Precision: 0.91

@@ -45,7 +45,7 @@ The confusion matrices for the test as well as the evaluation modes have been de
 
 The transformer-based model achieved an overall test accuracy of 84.14%. Below are the key evaluation metrics:
 
-Precision: 0.91
-Recall: 0.74
-F1-Score: 0.82
+Precision: a key metric in evaluating classifier models, assesses the accuracy of positive predictions. It is calculated as the ratio of true positive predictions to the total predicted positives. In this case, the precision has been computed to be 0.91
+Recall: It quantifies the proportion of actual positives that are correctly identified by a predictive model among the total number of positives in the dataset. For the study, the recall was thus computed to be 0.74
+F1-Score: It represents the harmonic mean of precision and recall, balancing both metrics. In this case, the F1-score has been calculated to be 0.82
 Training and validation accuracy plots, as well as confusion matrices, are available in the results/ folder.

@@ -3,4 +3,8 @@ artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingestion
   source_URL: <path_to_data_source>
+  local_data_file: <path_to_local_data_file>
+  unzip_dir: artifacts/data_ingestion/
+
+
 

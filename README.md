@@ -26,7 +26,9 @@ Signals recorded at different temperatures (from 20°C to 60°C).
 You can download the dataset from the [Open Guided Waves](https://openguidedwaves.de/ "OGW#2 dataset") repository.
 
 ## Data Preprocessing ##
+The raw signals of the Open Guided Waves dataset are often noisy and need to be preprocessed appropriately. All signals are subjected to a Butterworth high-pass filter with a filter order of nF = 3 and a cut-off frequency of 20 kHz. Subsequently, the differential signal is generated using the baseline subtraction method to detect the damage signature. Only excitation frequencies in the range 40-160kHz were considered. During this phase, the data points of each sample were down-sampled by a factor of 15, reducing the size from (13,108 × 6) to (874 × 6). Keeping the maxpooling factor so high works in this case because the sampling frequency of the PZT sensors used is so high that numerous entries representative of the signals are identical. Samples with numerous discrete data points increase computational overhead during transformer training.
 
+The resultant dataset comprises 9016 samples, with an equal  number of damaged and undamaged samples, where each sample contains a 1D array of 874 instances, representative of the wave response.
 
 ## Model Architecture ##
 The proposed transformer-based model leverages multi-head self-attention mechanisms to process the time-series data efficiently. The architecture includes:
@@ -45,6 +47,7 @@ The confusion matrices for the test as well as the evaluation modes have been de
 
 The transformer-based model achieved an overall test accuracy of 84.14%. Below are the key evaluation metrics:
 
+### Precision, Recall and f1-score ###
 Precision: a key metric in evaluating classifier models, assesses the accuracy of positive predictions. It is calculated as the ratio of true positive predictions to the total predicted positives. In this case, the precision has been computed to be 0.91
 Recall: It quantifies the proportion of actual positives that are correctly identified by a predictive model among the total number of positives in the dataset. For the study, the recall was thus computed to be 0.74
 F1-Score: It represents the harmonic mean of precision and recall, balancing both metrics. In this case, the F1-score has been calculated to be 0.82

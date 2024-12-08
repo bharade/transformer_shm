@@ -1,5 +1,6 @@
-import os,yaml
+import os
 from box.exceptions import BoxValueError
+import yaml 
 from transformerSHM.logging import logger
 from ensure import ensure_annotations
 from box import ConfigBox
@@ -9,32 +10,37 @@ from pathlib import Path
 @ensure_annotations
 def read_yaml(path_to_yaml:Path)->ConfigBox:
     """
-    read the yaml file and return the configbox object
-    Argss:
-    path_to_yaml: path to the yaml file 
-    returns: ConfigBox object
+    Read the yaml file and return the ConfigBox object
+    Args:
+    path_to_yaml: Path to the yaml file
+    Returns:
+    ConfigBox object
     """
     try:
-        with open(path_to_yaml,'r') as file:
-            config=ConfigBox(yaml.safe_load(file))
-            logger.info(f"yaml file read successfully from {path_to_yaml}")
+        with open(path_to_yaml, 'r') as file:
+            config = yaml.safe_load(file)
+            config = ConfigBox(config)
+            logger.info(f"YAML file read successfully from {path_to_yaml}")
             return config
     except BoxValueError:
         raise ValueError("yaml file is empty")
     except Exception as e:
-        raise e
+        raise 
     
 @ensure_annotations
-def create_directories(path_to_directories:list,verbose=True):
+def create_directories(path_to_directories:list, verbose=True):
     """
-    create directories if they do not exist
-    Args: path_to_directories: list of directories to be created
-    returns: None
+    Create directories if they do not exist
+    Args:
+    path_to_directories: List of paths to directories
+    Returns:
+    None
     """
     for path in path_to_directories:
-        os.makedirs(path,exist_ok=True)
+        os.makedirs(path, exist_ok=True)
+
         if verbose:
-            logger.info(f"directory created at {path}")
+            logger.info(f"Directory created at {path}")
 
 @ensure_annotations
 def get_size(path:Path)->str:
